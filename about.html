@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | UrjaEdge Energy Management</title>
+  <meta name="description" content="Learn about UrjaEdge Energy Management. We combine experienced solar plant operations with purpose-built digital management to help solar asset owners operate with clarity, accountability and control.">
+  <link rel="stylesheet" href="styles.css?v=modal-polish-1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111111'><path d='M13 2L3 14h8l-2 8 10-12h-8l2-8z'/></svg>" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header / Navigation
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="UrjaEdge Energy Management">
+          <img src="assets/images/urjaedge-logo-trimmed.png" alt="UrjaEdge Energy Management - Where Energy Meets Innovation" class="brand-logo-img">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#plant-care" class="nav-link">O&amp;M Services</a></li>
+          <li><a href="index.html#software" class="nav-link">O&amp;M Software</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+        </ul>
+
+        <!-- Navigation Actions -->
+        <div class="nav-actions">
+          <button class="btn-header-cta" data-open-modal data-type="general" id="headerCtaBtn">
+            <span>Contact Us</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </header>
+
+  <!-- ==========================================================================
+       1. About Hero Section
+       ========================================================================== -->
+  <section class="about-hero-section" id="about-hero">
+    <div class="hero-ambient-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="about-hero-header reveal-fade-up">
+        <div class="hero-badge-pill">
+          <span class="pill-accent">About UrjaEdge</span>
+          <span>Where Energy Meets Innovation</span>
+        </div>
+        <h1 class="hero-headline">
+          Where energy meets<br>
+          <span class="highlight">innovation.</span>
+        </h1>
+        <p class="hero-subhead">
+          Experienced solar plant operations paired with digital management software. Available separately or as an integrated service.
+        </p>
+        <div class="about-hero-actions">
+          <button class="btn-solaris-primary btn-magnetic" data-open-modal data-type="proposal">
+            <span>Request O&M Proposal</span>
+            <div class="btn-arrow-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Visual Banner with floating badge and 3D tilt -->
+      <div class="hero-visual-wrapper interactive-tilt">
+        <img src="assets/images/about-operations.jpg" alt="UrjaEdge Solar Plant Operations and Management" class="hero-visual-img" loading="eager">
+        <div class="hero-telemetry-badge hero-badge-top">
+          <div class="telemetry-pulse-dot"></div>
+          <div class="telemetry-text-group">
+            <h4>Where Energy Meets Innovation</h4>
+            <p>Solar Plant Operations &amp; Management Platform</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. Company Overview
+       ========================================================================== -->
+  <section class="about-overview-section" id="company-overview">
+    <div class="container">
+      <div class="about-overview-card reveal-fade-up spotlight-card">
+        <h2 class="section-title">Built around two capabilities.</h2>
+        <p class="section-desc" style="max-width: 820px; margin-bottom: 16px;">
+          UrjaEdge Energy Management pairs experienced solar plant operations with purpose-built digital management for asset owners.
+        </p>
+        <p class="section-desc" style="max-width: 820px;">
+          The two capabilities bring together on-ground plant operations and digital management for solar assets.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. Two Capabilities. One Energy Partner.
+       ========================================================================== -->
+  <section class="about-capabilities-section" id="two-capabilities">
+    <div class="container">
+      <div class="section-header text-center reveal-fade-up">
+        <h2 class="section-title">Two capabilities. One energy partner.</h2>
+        <p class="section-desc">
+          UrjaEdge combines on-ground O&M with digital plant management. Deploy either service independently or together.
+        </p>
+      </div>
+
+      <div class="about-caps-grid stagger-children">
+        <!-- On-Ground O&M Box -->
+        <div class="about-cap-box spotlight-card">
+          <div class="about-cap-box-header">
+            <h3 class="about-cap-title-large">On-Ground O&M</h3>
+            <p class="about-cap-desc-lead">Field technicians and engineers for safe and reliable solar plant operations.</p>
+          </div>
+
+          <ul class="about-check-list">
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Site manpower</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Maintenance planning</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Testing & inspection</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Cleaning & vegetation</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Safety & compliance</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Performance improvement</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Digital Management Box -->
+        <div class="about-cap-box spotlight-card">
+          <div class="about-cap-box-header">
+            <h3 class="about-cap-title-large">Digital Management</h3>
+            <p class="about-cap-desc-lead">Paperless checklists and centralized visibility for site teams, managers, and asset owners.</p>
+          </div>
+
+          <ul class="about-check-list">
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Paperless processes</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Centralized visibility</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Manpower & inventory control</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Safety & alarm monitoring</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Plant analytics</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">✓</span>
+              <span>Management reporting</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Banner note -->
+      <div class="about-caps-banner reveal-fade-up">
+        <div class="about-caps-banner-text">
+          <strong>Flexible Engagement:</strong> Use either capability independently, or bring them together into an integrated model.
+        </div>
+        <button class="btn-solaris-secondary btn-magnetic" data-open-modal data-type="proposal" style="color: #ffffff; border-color: rgba(255,255,255,0.25);">
+          <span>Explore Partnership</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. Solar Plant O&M (Site Execution)
+       ========================================================================== -->
+  <section class="about-om-section" id="solar-plant-om">
+    <div class="container">
+      <div class="section-header text-center reveal-fade-up">
+        <h2 class="section-title">Solar Plant O&M</h2>
+        <p class="section-desc">
+          Comprehensive on-site execution focused on plant safety, equipment availability, generation output, and asset longevity.
+        </p>
+      </div>
+
+      <div class="about-om-grid stagger-children">
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Plant Operation and Monitoring</span>
+          <span class="about-service-num">01</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Preventive Maintenance</span>
+          <span class="about-service-num">02</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Corrective and Breakdown Maintenance</span>
+          <span class="about-service-num">03</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Module Cleaning</span>
+          <span class="about-service-num">04</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Vegetation Management</span>
+          <span class="about-service-num">05</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Inverter Maintenance</span>
+          <span class="about-service-num">06</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Transformer and Switchyard Maintenance</span>
+          <span class="about-service-num">07</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">HT/LT Panel Maintenance</span>
+          <span class="about-service-num">08</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Weather Station Maintenance</span>
+          <span class="about-service-num">09</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Testing and Calibration</span>
+          <span class="about-service-num">10</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Thermography</span>
+          <span class="about-service-num">11</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Drone Inspection</span>
+          <span class="about-service-num">12</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Safety Management</span>
+          <span class="about-service-num">13</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Inventory and Spares</span>
+          <span class="about-service-num">14</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Documentation and Compliance</span>
+          <span class="about-service-num">15</span>
+        </div>
+        <div class="about-service-item-card spotlight-card">
+          <span class="about-service-name">Generation and Performance Reporting</span>
+          <span class="about-service-num">16</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. Solar O&M Management Software
+       ========================================================================== -->
+  <section class="about-software-section" id="management-software">
+    <div class="container">
+      <div class="section-header text-center reveal-fade-up">
+        <h2 class="section-title">Solar O&M Management Software</h2>
+        <p class="section-desc">
+          Paperless logging for plant operations, technician attendance, spares inventory, and generation analytics.
+        </p>
+      </div>
+
+
+      <div class="about-software-groups stagger-children" aria-label="Software modules by operational area">
+        <article class="about-software-group spotlight-card">
+          <div class="about-software-group-head"><span>01</span><h3>Site Operations</h3></div>
+          <div class="about-module-chips"><span>Asset Registry</span><span>Daily Inspection</span><span>Preventive Maintenance</span><span>Corrective Maintenance</span><span>Breakdown Management</span><span>Module Cleaning</span><span>Vegetation Management</span></div>
+        </article>
+        <article class="about-software-group spotlight-card">
+          <div class="about-software-group-head"><span>02</span><h3>People &amp; Resources</h3></div>
+          <div class="about-module-chips"><span>Attendance &amp; Manpower</span><span>Inventory &amp; Critical Spares</span><span>Contractor Management</span><span>Testing &amp; Calibration</span></div>
+        </article>
+        <article class="about-software-group spotlight-card">
+          <div class="about-software-group-head"><span>03</span><h3>Safety &amp; Control</h3></div>
+          <div class="about-module-chips"><span>Safety &amp; Incident Management</span><span>Alarm Management</span><span>Document &amp; Compliance</span><span>Thermography</span><span>Drone Inspection</span></div>
+        </article>
+        <article class="about-software-group spotlight-card about-software-group--accent">
+          <div class="about-software-group-head"><span>04</span><h3>Performance &amp; MIS</h3></div>
+          <div class="about-module-chips"><span>Generation Reporting</span><span>Performance Analytics</span><span>Power-Loss Analysis</span><span>Energy-Savings Analysis</span><span>Owner Dashboard</span><span>Mobile Application</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. Operational Architecture
+       ========================================================================== -->
+  <section class="about-flow-section" id="operational-architecture">
+    <div class="container">
+      <div class="section-header text-center reveal-fade-up">
+        <h2 class="section-title">Operational architecture across site and management</h2>
+        <p class="section-desc">
+          On-ground maintenance logs feed directly into digital records, giving management immediate operational oversight.
+        </p>
+      </div>
+
+      <div class="about-flow-split">
+        <!-- Column 1: On-ground operations -->
+        <div class="about-flow-column-card spotlight-card">
+          <div class="about-flow-col-title">
+            <span>On-Ground Operations</span>
+          </div>
+          <ul class="about-check-list">
+            <li class="about-check-item">
+              <span class="about-check-bullet">1</span>
+              <span>Site manpower</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">2</span>
+              <span>Maintenance planning</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">3</span>
+              <span>Testing & inspection</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">4</span>
+              <span>Cleaning & vegetation</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">5</span>
+              <span>Safety & compliance</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet">6</span>
+              <span>Performance improvement</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Connector Indicator -->
+        <div class="about-flow-connector-col reveal-fade-up">
+          <div class="about-flow-arrow-circle">→</div>
+          <span class="about-flow-connector-text">Digital Data Bridge</span>
+        </div>
+
+        <!-- Column 2: Digital management -->
+        <div class="about-flow-column-card highlight spotlight-card">
+          <div class="about-flow-col-title">
+            <span>Digital Management</span>
+          </div>
+          <ul class="about-check-list">
+            <li class="about-check-item">
+              <span class="about-check-bullet" style="background: #111111; color: var(--accent-lime);">1</span>
+              <span>Paperless processes</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet" style="background: #111111; color: var(--accent-lime);">2</span>
+              <span>Centralized visibility</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet" style="background: #111111; color: var(--accent-lime);">3</span>
+              <span>Manpower & inventory control</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet" style="background: #111111; color: var(--accent-lime);">4</span>
+              <span>Safety & alarm monitoring</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet" style="background: #111111; color: var(--accent-lime);">5</span>
+              <span>Plant analytics</span>
+            </li>
+            <li class="about-check-item">
+              <span class="about-check-bullet" style="background: #111111; color: var(--accent-lime);">6</span>
+              <span>Management reporting</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. What UrjaEdge Helps Asset Owners Achieve
+       ========================================================================== -->
+  <section class="about-outcomes-section" id="owner-outcomes">
+    <div class="container">
+      <div class="section-header text-center reveal-fade-up">
+        <h2 class="section-title">Operational results for solar asset owners</h2>
+        <p class="section-desc">
+          Structured preventive maintenance, rapid breakdown response, and daily digital tracking protect plant generation.
+        </p>
+      </div>
+
+      <div class="about-outcomes-stack stagger-children">
+        <div class="about-outcome-row-card spotlight-card">
+          <span class="about-outcome-idx">01</span>
+          <span class="about-outcome-heading">Higher availability</span>
+          <span class="about-outcome-detail">Structured maintenance routines and fast technician response minimize downtime.</span>
+        </div>
+        <div class="about-outcome-row-card spotlight-card">
+          <span class="about-outcome-idx">02</span>
+          <span class="about-outcome-heading">Improved generation yield</span>
+          <span class="about-outcome-detail">Scheduled module cleaning, vegetation clearing, and thermographic fault detection prevent avoidable generation loss.</span>
+        </div>
+        <div class="about-outcome-row-card spotlight-card">
+          <span class="about-outcome-idx">03</span>
+          <span class="about-outcome-heading">Rapid breakdown response</span>
+          <span class="about-outcome-detail">Immediate technician dispatch and emergency fault rectification restore power flow promptly.</span>
+        </div>
+        <div class="about-outcome-row-card spotlight-card">
+          <span class="about-outcome-idx">04</span>
+          <span class="about-outcome-heading">Centralized compliance and safety</span>
+          <span class="about-outcome-detail">Digital shift records, incident tracking, and audit-ready statutory compliance logs.</span>
+        </div>
+        <div class="about-outcome-row-card spotlight-card">
+          <span class="about-outcome-idx">05</span>
+          <span class="about-outcome-heading">Longer equipment life</span>
+          <span class="about-outcome-detail">Scheduled transformer oil testing, HT/LT panel upkeep, and critical spares on site protect capital assets.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. Integrated Positioning
+       ========================================================================== -->
+  <section class="about-integrated-section" id="integrated-model">
+    <div class="container">
+      <div class="about-integrated-card reveal-fade-up spotlight-card">
+        <div>
+          <h2 class="about-integrated-title">Two capabilities.<br>One energy partner.</h2>
+          <p class="about-integrated-desc">
+            Contract on-ground plant operations, deploy our management software, or choose an integrated model.
+          </p>
+        </div>
+        <div class="about-integrated-pair">
+          <div class="about-pair-item">
+            <div class="pair-dot"></div>
+            <span>On-ground O&amp;M for plant operations.</span>
+          </div>
+          <div class="about-pair-item">
+            <div class="pair-dot"></div>
+            <span>Digital management for visibility and control.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. Closing CTA Section
+       ========================================================================== -->
+  <section class="big-cta-section" id="contact">
+    <div class="container">
+      <div class="big-cta-card reveal-fade-up spotlight-card">
+        <h2 class="big-cta-headline">
+          Let's discuss your<br>
+          solar O&amp;M requirements.
+        </h2>
+        <p class="big-cta-desc">
+          Contract on-ground plant operations, deploy our management software, or choose an integrated model.
+        </p>
+        <div class="big-cta-actions">
+          <button class="btn-white-pill btn-magnetic" data-open-modal data-type="proposal" id="ctaBannerProposalBtn">
+            <span>Request O&M Proposal</span>
+            <div class="btn-arrow-badge">
+              <svg width="14" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. Contact Information & Footer
+       ========================================================================== -->
+  <footer class="site-footer" id="footer-contact">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Positioning -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" aria-label="UrjaEdge Energy Management">
+            <img src="assets/images/urjaedge-logo-trimmed.png" alt="UrjaEdge Energy Management - Where Energy Meets Innovation" class="footer-logo-img">
+          </a>
+          <p class="footer-tagline">
+            Where Energy Meets Innovation.<br>
+            Combining experienced solar plant operations with purpose-built digital management.
+          </p>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services &amp; Platform</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html#plant-care">Solar Plant O&amp;M Services</a></li>
+            <li class="footer-link-item"><a href="index.html#software">Solar O&amp;M Management Software</a></li>
+            <li class="footer-link-item"><a href="index.html#capabilities">Two Capabilities</a></li>
+            <li class="footer-link-item"><a href="index.html#outcomes">Asset Owner Outcomes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="index.html#plant-care">O&amp;M Services</a></li>
+            <li class="footer-link-item"><a href="index.html#software">O&amp;M Software</a></li>
+            <li class="footer-link-item"><a href="about.html">About Us</a></li>
+            <li class="footer-link-item"><a href="#contact" data-open-modal data-type="general">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Registered Office -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Registered Office</h4>
+          <div class="footer-contact-info">
+            <p><strong>UrjaEdge Energy Management</strong><br>202, Jayshree Apartment, New Palasia,<br>Indore – 452001, Madhya Pradesh</p>
+            <p><strong>Email:</strong> <a href="mailto:urjaedge@gmail.com">urjaedge@gmail.com</a></p>
+            <p><strong>Mobile:</strong> <a href="tel:+918770337731">+91 87703 37731</a></p>
+            <p><strong>GSTIN:</strong> 23AAJFU2362G1ZA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 UrjaEdge Energy Management. All rights reserved. &bull; GSTIN: 23AAJFU2362G1ZA</p>
+        <p>Indore, Madhya Pradesh &bull; Where Energy Meets Innovation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Interactive Proposal / Demo Modal Dialog
+       ========================================================================== -->
+  <div class="inquiry-modal" id="inquiryModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      
+      <div class="modal-header">
+        <h3 id="modalTitle">Request an O&M Proposal</h3>
+        <p id="modalSubtitle">Let us discuss your solar plant operations and maintenance requirement.</p>
+      </div>
+
+      <form class="inquiry-form" id="inquiryForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName" class="form-label">Full Name *</label>
+            <input type="text" id="fullName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label for="companyName" class="form-label">Company Name *</label>
+            <input type="text" id="companyName" class="form-input" placeholder="e.g. Solar Power Corp" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userDesignation" class="form-label">Designation</label>
+            <input type="text" id="userDesignation" class="form-input" placeholder="e.g. Plant Head / O&M Lead">
+          </div>
+          <div class="form-group">
+            <label for="userEmail" class="form-label">Work Email *</label>
+            <input type="email" id="userEmail" class="form-input" placeholder="rahul@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userMobile" class="form-label">Mobile Number *</label>
+            <input type="tel" id="userMobile" class="form-input" placeholder="+91 87703 37731" required>
+          </div>
+          <div class="form-group">
+            <label for="plantLocation" class="form-label">Plant / Project Location</label>
+            <input type="text" id="plantLocation" class="form-input" placeholder="e.g. Indore, Madhya Pradesh">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="plantCapacity" class="form-label">Solar Plant Capacity</label>
+            <input type="text" id="plantCapacity" class="form-input" placeholder="e.g. 5 MW / 500 kWp">
+          </div>
+          <div class="form-group">
+            <label for="reqType" class="form-label">Requirement Type *</label>
+            <select id="reqType" class="form-select" required>
+              <option value="Solar Plant O&M Services">Solar Plant O&M Services</option>
+              <option value="Solar O&M Management Software">Solar O&M Management Software</option>
+              <option value="Integrated O&M Services and Software">Integrated O&M Services and Software</option>
+              <option value="General Enquiry">General Enquiry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="briefReq" class="form-label">Brief Requirement *</label>
+          <textarea id="briefReq" class="form-textarea" rows="3" placeholder="Tell us about your solar plant capacity, location, and maintenance requirements..." required></textarea>
+        </div>
+
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="consentCheck" required checked>
+          <label for="consentCheck">I agree to be contacted by UrjaEdge regarding this operational requirement.</label>
+        </div>
+
+        <button type="submit" class="btn-solaris-primary" style="width: 100%; margin-top: 10px; justify-content: center;">
+          <span>Submit Enquiry</span>
+          <div class="btn-arrow-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toastNotice" role="alert">
+    <div class="toast-icon">✓</div>
+    <span id="toastMessage">Enquiry submitted successfully!</span>
+  </div>
+
+  <script src="main.js?v=apple2"></script>
+</body>
+</html>

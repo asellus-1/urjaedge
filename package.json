@@ -1,0 +1,11 @@
+{
+  "name": "urjaedge-website",
+  "version": "1.0.0",
+  "description": "UrjaEdge Energy Management Website",
+  "scripts": {
+    "dev": "npx -y serve . -l 3000",
+    "start": "npx -y serve . -l 3000"
+  },
+  "keywords": ["solar", "o&m", "energy-management"],
+  "license": "ISC"
+}
