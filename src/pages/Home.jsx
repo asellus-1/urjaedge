@@ -958,22 +958,22 @@ export default function Home() {
                     </div>
 
                     {/* Consent Checkbox */}
-                    <div className="form-group full-width" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', margin: '0.25rem 0 0.5rem' }}>
+                    <div style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.65rem', margin: '0.5rem 0 0.5rem' }}>
                       <input 
                         type="checkbox" 
                         id="desktop-privacyConsent" 
                         name="privacyConsent" 
                         checked={formData.privacyConsent} 
                         onChange={handleChange} 
-                        style={{ accentColor: 'var(--energy-orange)', width: '16px', height: '16px', cursor: 'pointer' }}
+                        style={{ accentColor: 'var(--energy-orange)', width: '17px', height: '17px', cursor: 'pointer', flexShrink: 0, margin: 0 }}
                         required
                       />
-                      <label htmlFor="desktop-privacyConsent" style={{ fontSize: '0.85rem', color: 'var(--secondary-text)', cursor: 'pointer' }}>
+                      <label htmlFor="desktop-privacyConsent" style={{ fontSize: '0.85rem', color: 'var(--secondary-text)', cursor: 'pointer', margin: 0, lineHeight: 1.4 }}>
                         I agree to the{' '}
                         <button
                           type="button"
                           onClick={(e) => { e.preventDefault(); e.stopPropagation(); setPrivacyModalOpen(true); }}
-                          style={{ background: 'none', border: 'none', padding: 0, color: 'var(--energy-orange)', textDecoration: 'underline', cursor: 'pointer', font: 'inherit' }}
+                          style={{ background: 'none', border: 'none', padding: 0, color: 'var(--energy-orange)', textDecoration: 'underline', cursor: 'pointer', font: 'inherit', fontWeight: 600 }}
                         >
                           privacy policy
                         </button>{' '}
