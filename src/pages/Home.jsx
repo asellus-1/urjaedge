@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import PrivacyTermsModal from '../components/PrivacyTermsModal';
 
 export default function Home() {
   const [searchParams] = useSearchParams();
@@ -956,8 +957,32 @@ export default function Home() {
                       />
                     </div>
 
+                    {/* Consent Checkbox */}
+                    <div className="form-group full-width" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', margin: '0.25rem 0 0.5rem' }}>
+                      <input 
+                        type="checkbox" 
+                        id="desktop-privacyConsent" 
+                        name="privacyConsent" 
+                        checked={formData.privacyConsent} 
+                        onChange={handleChange} 
+                        style={{ accentColor: 'var(--energy-orange)', width: '16px', height: '16px', cursor: 'pointer' }}
+                        required
+                      />
+                      <label htmlFor="desktop-privacyConsent" style={{ fontSize: '0.85rem', color: 'var(--secondary-text)', cursor: 'pointer' }}>
+                        I agree to the{' '}
+                        <button
+                          type="button"
+                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setPrivacyModalOpen(true); }}
+                          style={{ background: 'none', border: 'none', padding: 0, color: 'var(--energy-orange)', textDecoration: 'underline', cursor: 'pointer', font: 'inherit' }}
+                        >
+                          privacy policy
+                        </button>{' '}
+                        and contact consent.
+                      </label>
+                    </div>
+
                     {/* Submit Button */}
-                    <div className="form-group full-width" style={{ marginTop: '1.25rem' }}>
+                    <div className="form-group full-width" style={{ marginTop: '0.75rem' }}>
                       <button type="submit" className="btn-primary" style={{ padding: '1rem 2.75rem', width: 'auto' }}>
                         Submit enquiry
                       </button>
@@ -1196,81 +1221,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Privacy Policy Modal */}
+      {/* Privacy Policy & Terms Modal */}
       {privacyModalOpen && (
-        <div 
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 9999,
-            backgroundColor: 'rgba(6, 29, 48, 0.75)',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '1.25rem'
-          }}
-          onClick={() => setPrivacyModalOpen(false)}
-        >
-          <div 
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '20px',
-              maxWidth: '500px',
-              width: '100%',
-              padding: '2rem 1.75rem',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.25)',
-              position: 'relative'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-              <span className="eyebrow" style={{ marginBottom: 0 }}>URJAEDGE POLICY</span>
-              <button 
-                onClick={() => setPrivacyModalOpen(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '1.4rem',
-                  lineHeight: 1,
-                  color: 'var(--secondary-text)',
-                  cursor: 'pointer',
-                  padding: '0.25rem'
-                }}
-                aria-label="Close modal"
-              >
-                ✕
-              </button>
-            </div>
-
-            <h3 style={{ fontSize: '1.4rem', color: 'var(--primary-navy)', fontWeight: 800, marginBottom: '1rem', letterSpacing: '-0.01em' }}>
-              Privacy & Contact Consent
-            </h3>
-
-            <div style={{ fontSize: '0.9rem', color: 'var(--primary-text)', lineHeight: 1.6, display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.75rem' }}>
-              <p>
-                <strong>1. Data Confidentiality:</strong> Any solar plant details, capacities, locations, and contact information you submit are treated with strict corporate confidentiality.
-              </p>
-              <p>
-                <strong>2. Zero Third-Party Sharing:</strong> Your personal and company data is never sold, shared, or distributed to third-party vendors or advertisers.
-              </p>
-              <p>
-                <strong>3. Contact Permission:</strong> By submitting an enquiry, you consent to UrjaEdge contacting you via email or phone exclusively regarding your requested O&M proposal, software demo, or related solar advisory.
-              </p>
-            </div>
-
-            <button 
-              onClick={() => setPrivacyModalOpen(false)} 
-              className="btn-primary"
-              style={{ width: '100%', borderRadius: '50px', padding: '0.85rem' }}
-            >
-              Understood
-            </button>
-          </div>
-        </div>
+        <PrivacyTermsModal type="privacy" onClose={() => setPrivacyModalOpen(false)} />
       )}
-
     </main>
   );
 }

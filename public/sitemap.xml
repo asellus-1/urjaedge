@@ -16,4 +16,22 @@
       <image:title>UrjaEdge Logo</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://urjaedge.com/privacy-policy</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://urjaedge.com/terms-of-service</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://urjaedge.com/cookie-policy</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>

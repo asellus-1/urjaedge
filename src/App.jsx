@@ -5,6 +5,7 @@ import 'lenis/dist/lenis.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Legal from './pages/Legal';
 
 export default function App() {
   useEffect(() => {
@@ -41,6 +42,11 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<Legal />} />
+        <Route path="/privacy" element={<Legal />} />
+        <Route path="/terms-of-service" element={<Legal />} />
+        <Route path="/terms" element={<Legal />} />
+        <Route path="/cookie-policy" element={<Legal />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

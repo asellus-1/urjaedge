@@ -133,6 +133,12 @@ export default function Footer() {
             >
               Terms of Service
             </button>
+            <button 
+              onClick={() => openModal('cookies')} 
+              style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.85)', cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              Cookies & Disclaimers
+            </button>
           </div>
         </div>
       </div>
