@@ -105,8 +105,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   align-items: center;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
 .site-header .header-inner {
@@ -973,6 +971,9 @@ textarea.form-control {
   left: 0;
   right: 0;
   width: 100%;
+  max-height: calc(100vh - var(--header-height-mobile) - 20px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: #ffffff;
   border-bottom: 2px solid var(--energy-orange);
   box-shadow: 0 20px 40px rgba(12, 45, 72, 0.16);

@@ -45,20 +45,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      window.lenis?.stop();
-      document.body.style.overflow = 'hidden';
-    } else {
-      window.lenis?.start();
-      document.body.style.overflow = '';
-    }
-    return () => {
-      window.lenis?.start();
-      document.body.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
-
   const scrollToSection = (id) => {
     setMobileMenuOpen(false);
     activeSectionRef.current = id;
