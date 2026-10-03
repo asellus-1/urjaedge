@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://urjaedge.com/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://urjaedge.com/logo.png</image:loc>
+      <image:title>UrjaEdge Energy Management - Where Energy Meets Innovation</image:title>
+      <image:caption>UrjaEdge Solar Plant Operations, Maintenance Services and Management Software</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://urjaedge.com/logo.svg</image:loc>
+      <image:title>UrjaEdge Logo</image:title>
+    </image:image>
+  </url>
+</urlset>

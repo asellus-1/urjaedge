@@ -1,11 +1,22 @@
 {
   "name": "urjaedge-website",
+  "private": true,
   "version": "1.0.0",
-  "description": "UrjaEdge Energy Management Website",
+  "type": "module",
   "scripts": {
-    "dev": "npx -y serve . -l 3000",
-    "start": "npx -y serve . -l 3000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": ["solar", "o&m", "energy-management"],
-  "license": "ISC"
+  "dependencies": {
+    "lenis": "^1.3.26",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.1.4"
+  }
 }
