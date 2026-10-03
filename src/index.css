@@ -934,15 +934,115 @@ textarea.form-control {
 .stagger-7 { transition-delay: 0.56s; }
 .stagger-8 { transition-delay: 0.64s; }
 
+/* Mobile Backdrop Overlay */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: var(--header-height-desktop);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(12, 45, 72, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  animation: fadeInBackdrop 0.25s ease forwards;
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-backdrop {
+    top: var(--header-height-mobile);
+  }
+}
+
+@media (min-width: 993px) {
+  .mobile-menu-drawer,
+  .mobile-menu-backdrop {
+    display: none !important;
+  }
+}
+
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Mobile Drawer Fluid Cascade */
 .mobile-menu-drawer {
-  animation: drawerSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--energy-orange);
+  box-shadow: 0 20px 40px rgba(12, 45, 72, 0.16);
+  z-index: 999;
+  padding: 1rem 1.25rem 1.5rem;
+  animation: drawerSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  letter-spacing: -0.01em;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item:active {
+  background-color: var(--light-surface);
+  color: var(--energy-orange);
+}
+
+.mobile-nav-item.active {
+  color: var(--energy-orange);
+  background-color: rgba(245, 130, 32, 0.08);
+  font-weight: 700;
+}
+
+.mobile-nav-arrow {
+  color: var(--secondary-text);
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.mobile-nav-item:hover .mobile-nav-arrow,
+.mobile-nav-item.active .mobile-nav-arrow {
+  color: var(--energy-orange);
+  transform: translateX(4px);
+}
+
+.mobile-menu-cta {
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
 }
 
 @keyframes drawerSlide {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;

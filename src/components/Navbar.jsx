@@ -45,6 +45,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      window.lenis?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      window.lenis?.start();
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.lenis?.start();
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (id) => {
     setMobileMenuOpen(false);
     activeSectionRef.current = id;
@@ -147,50 +161,65 @@ export default function Navbar() {
             className="hamburger-btn" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Backdrop Overlay */}
+      {mobileMenuOpen && (
+        <div 
+          className="mobile-menu-backdrop" 
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="mobile-menu-drawer">
-          <button 
-            onClick={() => scrollToSection('home')} 
-            className="nav-link"
-            style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer' }}
-          >
-            Home
-          </button>
-          <button 
-            onClick={() => scrollToSection('solar-om-services')} 
-            className="nav-link"
-            style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer' }}
-          >
-            O&M Services
-          </button>
-          <button 
-            onClick={() => scrollToSection('solar-om-software')} 
-            className="nav-link"
-            style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer' }}
-          >
-            O&M Software
-          </button>
-          <button 
-            onClick={() => scrollToSection('about-us')} 
-            className="nav-link"
-            style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer' }}
-          >
-            About
-          </button>
-          <button 
-            onClick={() => scrollToSection('contact-us')} 
-            className="btn-primary"
-            style={{ marginTop: '0.5rem', width: '100%', cursor: 'pointer' }}
-          >
-            Contact us
-          </button>
+        <div className="mobile-menu-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+          <nav className="mobile-nav-list">
+            <button 
+              onClick={() => scrollToSection('home')} 
+              className={`mobile-nav-item ${activeSection === 'home' ? 'active' : ''}`}
+            >
+              <span>Home</span>
+              <span className="mobile-nav-arrow">→</span>
+            </button>
+            <button 
+              onClick={() => scrollToSection('solar-om-services')} 
+              className={`mobile-nav-item ${activeSection === 'solar-om-services' ? 'active' : ''}`}
+            >
+              <span>O&M Services</span>
+              <span className="mobile-nav-arrow">→</span>
+            </button>
+            <button 
+              onClick={() => scrollToSection('solar-om-software')} 
+              className={`mobile-nav-item ${activeSection === 'solar-om-software' ? 'active' : ''}`}
+            >
+              <span>O&M Software</span>
+              <span className="mobile-nav-arrow">→</span>
+            </button>
+            <button 
+              onClick={() => scrollToSection('about-us')} 
+              className={`mobile-nav-item ${activeSection === 'about-us' ? 'active' : ''}`}
+            >
+              <span>About Us</span>
+              <span className="mobile-nav-arrow">→</span>
+            </button>
+            
+            <div className="mobile-menu-cta">
+              <button 
+                onClick={() => scrollToSection('contact-us')} 
+                className="btn-primary"
+                style={{ width: '100%', padding: '0.85rem 1rem', fontSize: '0.95rem', borderRadius: '50px' }}
+              >
+                Contact us
+              </button>
+            </div>
+          </nav>
         </div>
       )}
     </header>
