@@ -32,12 +32,19 @@ export default function Footer() {
                 <Logo />
               </div>
             </button>
-            <p style={{ marginTop: '1.25rem', maxWidth: '320px', color: 'rgba(255, 255, 255, 0.88)' }}>
-              UrjaEdge Energy Management combines experienced solar plant operations with purpose-built digital management.
-            </p>
-            <p style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--energy-orange)', fontWeight: '600' }}>
-              GSTIN: 23AAJFU2362G1ZA
-            </p>
+            <div style={{ marginTop: '1.5rem' }}>
+              <h4 style={{ color: 'var(--energy-orange)', fontSize: '0.95rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Registered Office</h4>
+              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                202, Jayshree Apartment, New Palasia,<br />
+                Indore - 452001, Madhya Pradesh
+              </p>
+              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                <strong style={{ color: 'var(--white)' }}>Email:</strong> urjaedge@gmail.com
+              </p>
+              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem' }}>
+                <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 87703 37731
+              </p>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -99,46 +106,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Registered Address & Contact */}
-          <div>
-            <h4 className="footer-col-title">Registered Office</h4>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
-              202, Jayshree Apartment, New Palasia,<br />
-              Indore - 452001, Madhya Pradesh
-            </p>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
-              <strong style={{ color: 'var(--white)' }}>Email:</strong> urjaedge@gmail.com
-            </p>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem' }}>
-              <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 87703 37731
-            </p>
-          </div>
+
         </div>
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <div style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-            © 2026 UrjaEdge Energy Management. All rights reserved.
+          <div className="footer-copyright">
+            © {new Date().getFullYear()} UrjaEdge Energy Management. All rights reserved.
           </div>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <button 
-              onClick={() => openModal('privacy')} 
-              style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.85)', cursor: 'pointer', textDecoration: 'underline' }}
-            >
-              Privacy Policy
-            </button>
-            <button 
-              onClick={() => openModal('terms')} 
-              style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.85)', cursor: 'pointer', textDecoration: 'underline' }}
-            >
-              Terms of Service
-            </button>
-            <button 
-              onClick={() => openModal('cookies')} 
-              style={{ background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.85)', cursor: 'pointer', textDecoration: 'underline' }}
-            >
-              Cookies & Disclaimers
-            </button>
+          <div className="footer-legal-links">
+            <button onClick={() => openModal('privacy')}>Privacy Policy</button>
+            <span className="footer-divider"></span>
+            <button onClick={() => openModal('terms')}>Terms of Service</button>
+            <span className="footer-divider"></span>
+            <button onClick={() => openModal('cookies')}>Cookies & Disclaimers</button>
           </div>
         </div>
       </div>

@@ -819,35 +819,7 @@ export default function Home() {
                 Choose expert O&M services, management software, or an integrated model.
               </p>
 
-              <div style={{ marginTop: 'auto' }}>
-                <div className="contact-info-company" style={{ color: 'var(--energy-orange)', fontWeight: '700', fontSize: '1.05rem', letterSpacing: '0.03em', marginBottom: '1.15rem' }}>
-                  URJAEDGE ENERGY MANAGEMENT
-                </div>
-                <div className="contact-info-address" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.75rem' }}>
-                  202, Jayshree Apartment, New Palasia,<br />
-                  Indore - 452001, Madhya Pradesh
-                </div>
-                <div style={{ marginBottom: '0.65rem' }}>
-                  <a 
-                    href="mailto:urjaedge@gmail.com" 
-                    style={{ color: 'var(--white)', fontSize: '1rem', fontWeight: '500', transition: 'color 0.2s ease', display: 'inline-block' }}
-                    onMouseEnter={(e) => e.target.style.color = 'var(--energy-orange)'}
-                    onMouseLeave={(e) => e.target.style.color = 'var(--white)'}
-                  >
-                    urjaedge@gmail.com
-                  </a>
-                </div>
-                <div>
-                  <a 
-                    href="tel:+918770337731" 
-                    style={{ color: 'var(--white)', fontSize: '1rem', fontWeight: '500', transition: 'color 0.2s ease', display: 'inline-block' }}
-                    onMouseEnter={(e) => e.target.style.color = 'var(--energy-orange)'}
-                    onMouseLeave={(e) => e.target.style.color = 'var(--white)'}
-                  >
-                    +91 87703 37731
-                  </a>
-                </div>
-              </div>
+
             </div>
 
             {/* Right Column: White Form Box */}
@@ -1187,37 +1159,7 @@ export default function Home() {
             )}
           </div>
 
-          {/* Dark Navy Info Card */}
-          <div className="reveal-on-scroll stagger-2" style={{
-            backgroundColor: 'var(--dark-navy)',
-            color: 'var(--white)',
-            borderRadius: '16px',
-            padding: '2rem 1.5rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-          }}>
-            <div style={{ color: 'var(--white)', fontWeight: 800, fontSize: '1.05rem', letterSpacing: '0.03em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
-              URJAEDGE ENERGY MANAGEMENT
-            </div>
-            <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '1.75rem' }}>
-              202, Jayshree Apartment, New Palasia, Indore - 452001, Madhya Pradesh
-            </div>
-            <div style={{ marginBottom: '0.5rem' }}>
-              <a 
-                href="mailto:urjaedge@gmail.com" 
-                style={{ color: 'var(--white)', fontSize: '0.95rem', fontWeight: 600, display: 'inline-block' }}
-              >
-                urjaedge@gmail.com
-              </a>
-            </div>
-            <div>
-              <a 
-                href="tel:+918770337731" 
-                style={{ color: 'var(--white)', fontSize: '0.95rem', fontWeight: 600, display: 'inline-block' }}
-              >
-                +91 87703 37731
-              </a>
-            </div>
-          </div>
+
         </div>
       </section>
 

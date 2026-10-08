@@ -606,7 +606,7 @@ textarea.form-control {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 3.5rem;
   margin-bottom: 4rem;
 }
@@ -661,10 +661,46 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.65);
   flex-wrap: wrap;
   gap: 1.25rem;
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-legal-links button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer-legal-links button:hover {
+  color: var(--energy-orange);
+  text-shadow: 0 0 12px rgba(245, 130, 32, 0.4);
+}
+
+.footer-divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Visibility Controls to lock Desktop completely */
@@ -750,6 +786,11 @@ textarea.form-control {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 1.75rem;
+  }
+  
+  .footer-legal-links {
+    gap: 1rem;
   }
 }
 

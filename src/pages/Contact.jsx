@@ -97,21 +97,7 @@ export default function Contact() {
               Choose expert O&M services, management software, or an integrated model.
             </p>
 
-            <div style={{ marginTop: 'auto' }}>
-              <div className="contact-info-company" style={{ color: 'var(--energy-orange)', fontWeight: '700', fontSize: '1.05rem', letterSpacing: '0.03em', marginBottom: '1.15rem' }}>
-                URJAEDGE ENERGY MANAGEMENT
-              </div>
-              <div className="contact-info-address" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.75rem' }}>
-                202, Jayshree Apartment, New Palasia,<br />
-                Indore - 452001, Madhya Pradesh
-              </div>
-              <div style={{ color: 'var(--white)', fontSize: '1rem', marginBottom: '0.65rem', fontWeight: '500' }}>
-                urjaedge@gmail.com
-              </div>
-              <div style={{ color: 'var(--white)', fontSize: '1rem', fontWeight: '500' }}>
-                +91 87703 37731
-              </div>
-            </div>
+
           </div>
 
           {/* Right Column: White Form Box (Screen 05 exact match) */}
