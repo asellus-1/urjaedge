@@ -188,7 +188,7 @@ export default function PrivacyTermsModal({ type = 'privacy', onClose }) {
               <div style={{ backgroundColor: '#F8FAFC', padding: '0.85rem 1rem', borderRadius: '10px', fontSize: '0.85rem', border: '1px solid #E2E8F0' }}>
                 <div><strong>Data Protection Officer:</strong> UrjaEdge Energy Management</div>
                 <div><strong>Address:</strong> 202, Jayshree Apartment, New Palasia, Indore - 452001, MP, India</div>
-                <div><strong>Email:</strong> urjaedge@gmail.com | <strong>Mobile:</strong> +91 87703 37731</div>
+                <div><strong>Email:</strong> urjaedge@gmail.com | <strong>Mobile:</strong> +91 78801 16970</div>
               </div>
             </div>
           )}

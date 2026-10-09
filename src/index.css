@@ -31,7 +31,7 @@
 
 html {
   font-family: var(--font-body);
-  background-color: var(--warm-white);
+  background-color: var(--dark-navy);
   color: var(--primary-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -44,6 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: clip;
+  background-color: var(--dark-navy);
 }
 
 #root {
@@ -51,6 +52,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
+  background-color: var(--dark-navy);
 }
 
 a {
@@ -735,6 +737,10 @@ textarea.form-control {
   .site-header {
     height: var(--header-height-mobile);
     border-bottom: 3px solid var(--energy-orange) !important;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 
   .nav-links {

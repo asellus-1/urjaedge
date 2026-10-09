@@ -9,7 +9,12 @@ import Legal from './pages/Legal';
 
 export default function App() {
   useEffect(() => {
-    // Premium SaaS smooth scrolling engine
+    // Only initialize Lenis smooth scroll on desktop / non-touch devices to avoid iOS touch scroll calculation bugs
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(max-width: 768px)').matches;
+    if (isTouch) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out curve
@@ -17,7 +22,6 @@ export default function App() {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 0.9,
-      touchMultiplier: 1.2,
       infinite: false,
     });
 

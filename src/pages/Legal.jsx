@@ -270,7 +270,7 @@ export default function Legal() {
                   <div><strong>Entity:</strong> UrjaEdge Energy Management</div>
                   <div><strong>Address:</strong> 202, Jayshree Apartment, New Palasia, Indore - 452001, Madhya Pradesh, India</div>
                   <div><strong>Email:</strong> <a href="mailto:urjaedge@gmail.com" style={{ color: 'var(--energy-orange)' }}>urjaedge@gmail.com</a></div>
-                  <div><strong>Phone:</strong> +91 87703 37731</div>
+                  <div><strong>Phone:</strong> +91 78801 16970</div>
                 </div>
               </section>
             </div>

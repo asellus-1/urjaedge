@@ -21,9 +21,11 @@ export default function Logo({ className = '', style = {} }) {
           height: '48px', 
           width: 'auto', 
           display: 'block', 
-          objectFit: 'contain' 
+          objectFit: 'contain',
+          imageRendering: '-webkit-optimize-contrast'
         }} 
       />
     </div>
   );
 }
+

@@ -28,8 +28,11 @@ export default function Footer() {
               onClick={() => scrollToSection('home')} 
               style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
             >
-              <div style={{ backgroundColor: 'var(--white)', padding: '0.4rem 0.75rem', borderRadius: '8px', display: 'inline-block' }}>
+              <div className="desktop-only" style={{ backgroundColor: 'var(--white)', padding: '0.4rem 0.75rem', borderRadius: '8px', display: 'inline-block' }}>
                 <Logo />
+              </div>
+              <div className="mobile-only" style={{ color: 'var(--white)', fontSize: '1.85rem', fontWeight: '800', fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}>
+                UrjaEdge
               </div>
             </button>
             <div style={{ marginTop: '1.5rem' }}>
@@ -42,7 +45,7 @@ export default function Footer() {
                 <strong style={{ color: 'var(--white)' }}>Email:</strong> urjaedge@gmail.com
               </p>
               <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem' }}>
-                <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 87703 37731
+                <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 78801 16970
               </p>
             </div>
           </div>
