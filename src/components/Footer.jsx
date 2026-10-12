@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Logo from './Logo';
 import PrivacyTermsModal from './PrivacyTermsModal';
+import ContactModal from './ContactModal';
 
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState('privacy');
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const openModal = (type) => {
     setModalType(type);
@@ -23,33 +24,20 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top">
           {/* Brand Col */}
-          <div className="footer-brand">
-            <button 
-              onClick={() => scrollToSection('home')} 
-              style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
-            >
-              <div className="desktop-only" style={{ backgroundColor: 'var(--white)', padding: '0.4rem 0.75rem', borderRadius: '8px', display: 'inline-block' }}>
-                <Logo />
-              </div>
-              <div className="mobile-only" style={{ color: 'var(--white)', fontSize: '1.85rem', fontWeight: '800', fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}>
-                UrjaEdge
-              </div>
-            </button>
-            <div style={{ marginTop: '1.5rem', fontSize: '15.2px' }}>
-              <h4 style={{ color: 'var(--energy-orange)', fontSize: '15.2px', fontWeight: '700', marginBottom: '1rem', letterSpacing: '0.02em' }}>
-                UrjaEdge Energy Management
-              </h4>
-              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px', lineHeight: '1.6', marginBottom: '1rem' }}>
-                202, Jayshree Apartment, New Palasia,<br />
-                Indore - 452001, Madhya Pradesh
-              </p>
-              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px', marginBottom: '0.5rem' }}>
-                <strong style={{ color: 'var(--white)' }}>Email:</strong> urjaedge@gmail.com
-              </p>
-              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px' }}>
-                <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 78801 16970
-              </p>
-            </div>
+          <div className="footer-brand" style={{ fontSize: '15.2px' }}>
+            <h4 style={{ color: 'var(--energy-orange)', fontSize: '15.2px', fontWeight: '700', marginBottom: '1.5rem', letterSpacing: '0.02em' }}>
+              URJAEDGE ENERGY MANAGEMENT
+            </h4>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px', lineHeight: '1.6', marginBottom: '1rem' }}>
+              202, Jayshree Apartment, New Palasia,<br />
+              Indore - 452001, Madhya Pradesh
+            </p>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px', marginBottom: '0.5rem' }}>
+              <strong style={{ color: 'var(--white)' }}>Email:</strong> urjaedge@gmail.com
+            </p>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px' }}>
+              <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 78801 16970
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -77,7 +65,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact-us')}>
+                <button onClick={() => setContactModalOpen(true)}>
                   Contact Us
                 </button>
               </li>
@@ -133,6 +121,12 @@ export default function Footer() {
       {modalOpen && (
         <PrivacyTermsModal type={modalType} onClose={() => setModalOpen(false)} />
       )}
+
+      {/* Direct Contact Modal */}
+      <ContactModal 
+        isOpen={contactModalOpen} 
+        onClose={() => setContactModalOpen(false)} 
+      />
     </footer>
   );
 }

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
+import ContactModal from './ContactModal';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const progressRef = useRef(null);
   const activeSectionRef = useRef('home');
@@ -132,7 +134,7 @@ export default function Navbar() {
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('contact-us')} 
+                  onClick={() => setContactModalOpen(true)} 
                   className="btn-contact-nav"
                   style={{ cursor: 'pointer', border: 'none' }}
                 >
@@ -198,7 +200,10 @@ export default function Navbar() {
             
             <div className="mobile-menu-cta">
               <button 
-                onClick={() => scrollToSection('contact-us')} 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setContactModalOpen(true);
+                }} 
                 className="btn-primary"
                 style={{ width: '100%', padding: '0.85rem 1rem', fontSize: '0.95rem', borderRadius: '50px' }}
               >
@@ -208,6 +213,12 @@ export default function Navbar() {
           </nav>
         </div>
       )}
+
+      {/* Direct Contact Modal */}
+      <ContactModal 
+        isOpen={contactModalOpen} 
+        onClose={() => setContactModalOpen(false)} 
+      />
     </header>
   );
 }
