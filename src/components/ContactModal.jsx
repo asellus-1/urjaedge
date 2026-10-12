@@ -1,16 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, MapPin, Phone, Mail, Navigation, PhoneCall, Send } from 'lucide-react';
+import { X, MapPin, Phone, Mail, PhoneCall, Send } from 'lucide-react';
 
 export default function ContactModal({ isOpen, onClose }) {
+  const [isRendered, setIsRendered] = useState(isOpen);
+  const [isClosing, setIsClosing] = useState(false);
+
   useEffect(() => {
-    if (!isOpen) return;
+    if (isOpen) {
+      setIsRendered(true);
+      setIsClosing(false);
+    } else if (isRendered) {
+      setIsClosing(true);
+      const timer = setTimeout(() => {
+        setIsRendered(false);
+        setIsClosing(false);
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
+  const handleClose = () => {
+    if (isClosing) return;
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+    }, 200);
+  };
+
+  useEffect(() => {
+    if (!isRendered) return;
 
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') handleClose();
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -18,12 +43,10 @@ export default function ContactModal({ isOpen, onClose }) {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [isRendered, isClosing]);
 
-  if (!isOpen) return null;
+  if (!isRendered) return null;
 
-  const addressText = "202, Jayshree Apartment, New Palasia, Indore - 452001, Madhya Pradesh, India";
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("202, Jayshree Apartment, New Palasia, Indore, Madhya Pradesh 452001")}`;
   const phoneNumber = "+917880116970";
   const formattedPhone = "+91 78801 16970";
   const emailAddress = "urjaedge@gmail.com";
@@ -31,7 +54,7 @@ export default function ContactModal({ isOpen, onClose }) {
   return createPortal(
     <div 
       className="modal-overlay"
-      onClick={onClose}
+      onClick={handleClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-title"
@@ -46,7 +69,9 @@ export default function ContactModal({ isOpen, onClose }) {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '1.25rem',
-        animation: 'fadeIn 0.2s ease-out'
+        animation: isClosing 
+          ? 'modalOverlayFadeOut 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards' 
+          : 'modalOverlayFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards'
       }}
     >
       <div 
@@ -55,26 +80,29 @@ export default function ContactModal({ isOpen, onClose }) {
         style={{
           backgroundColor: '#FFFFFF',
           borderRadius: '24px',
-          maxWidth: '520px',
+          maxWidth: '500px',
           width: '100%',
-          maxHeight: 'calc(100vh - 2rem)',
+          maxHeight: 'calc(100vh - 2.5rem)',
           boxShadow: '0 25px 60px -15px rgba(6, 29, 48, 0.35)',
           overflow: 'hidden',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           border: '1px solid rgba(220, 229, 234, 0.9)',
-          animation: 'fadeInUp 0.25s ease'
+          animation: isClosing
+            ? 'modalPopOut 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+            : 'modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards'
         }}
       >
-        {/* Header with warm solar accent bar */}
+        {/* Subtle Brand Solar Top Bar */}
         <div style={{
-          height: '5px',
+          height: '4px',
           background: 'linear-gradient(90deg, var(--energy-orange), #ff9f43)'
         }} />
 
+        {/* Minimal Header */}
         <div style={{
-          padding: '1.75rem 2rem 1.25rem',
+          padding: '1.5rem 1.75rem 1rem',
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'space-between',
@@ -82,11 +110,11 @@ export default function ContactModal({ isOpen, onClose }) {
           backgroundColor: '#FAFCFD'
         }}>
           <div>
-            <span className="eyebrow" style={{ marginBottom: '0.35rem', fontSize: '0.78rem' }}>
-              GET IN TOUCH DIRECTLY
+            <span className="eyebrow" style={{ marginBottom: '0.25rem', fontSize: '0.75rem' }}>
+              DIRECT CONTACT
             </span>
             <h3 id="contact-modal-title" style={{
-              fontSize: '1.5rem',
+              fontSize: '1.4rem',
               fontWeight: 800,
               color: 'var(--primary-navy)',
               margin: 0,
@@ -94,33 +122,24 @@ export default function ContactModal({ isOpen, onClose }) {
             }}>
               Contact UrjaEdge
             </h3>
-            <p style={{
-              fontSize: '0.9rem',
-              color: 'var(--secondary-text)',
-              marginTop: '0.35rem',
-              marginBottom: 0
-            }}>
-              Connect with our team for plant operations, inspections, and software demos.
-            </p>
           </div>
 
           <button
-            onClick={onClose}
+            onClick={handleClose}
             aria-label="Close contact popup"
             style={{
               background: '#F1F5F9',
               border: 'none',
               borderRadius: '50%',
-              width: '36px',
-              height: '36px',
+              width: '34px',
+              height: '34px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
               color: 'var(--primary-text)',
               transition: 'background 0.2s ease, transform 0.2s ease',
-              flexShrink: 0,
-              marginLeft: '1rem'
+              flexShrink: 0
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#E2E8F0';
@@ -131,13 +150,13 @@ export default function ContactModal({ isOpen, onClose }) {
               e.currentTarget.style.transform = 'scale(1)';
             }}
           >
-            <X size={18} />
+            <X size={17} />
           </button>
         </div>
 
-        {/* Contact Info Cards */}
+        {/* Minimal Content Body */}
         <div style={{
-          padding: '1.25rem 1.5rem 1.5rem',
+          padding: '1.25rem 1.75rem 1.75rem',
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
@@ -145,83 +164,47 @@ export default function ContactModal({ isOpen, onClose }) {
           WebkitOverflowScrolling: 'touch'
         }}>
 
-          {/* 1. Address Card */}
+          {/* 1. Static Office Address */}
           <div style={{
-            padding: '1.15rem',
+            padding: '1.15rem 1.25rem',
             borderRadius: '16px',
             backgroundColor: 'var(--soft-grey-blue)',
             border: '1px solid #E2E8F0',
             display: 'flex',
-            flexDirection: 'column',
-            gap: '0.85rem'
+            alignItems: 'flex-start',
+            gap: '0.9rem'
           }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
-              <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '12px',
-                backgroundColor: 'rgba(245, 130, 32, 0.12)',
-                color: 'var(--energy-orange)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}>
-                <MapPin size={20} />
+            <div style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: '10px',
+              backgroundColor: 'rgba(245, 130, 32, 0.12)',
+              color: 'var(--energy-orange)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              marginTop: '0.1rem'
+            }}>
+              <MapPin size={19} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--secondary-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Registered Office
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--secondary-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Registered Office
-                </div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary-navy)', marginTop: '0.15rem' }}>
-                  UrjaEdge Energy Management
-                </div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--primary-text)', lineHeight: 1.5, marginTop: '0.2rem' }}>
-                  202, Jayshree Apartment, New Palasia,<br />
-                  Indore - 452001, Madhya Pradesh
-                </div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary-navy)', marginTop: '0.15rem' }}>
+                UrjaEdge Energy Management
+              </div>
+              <div style={{ fontSize: '0.88rem', color: 'var(--primary-text)', lineHeight: 1.55, marginTop: '0.25rem' }}>
+                202, Jayshree Apartment, New Palasia,<br />
+                Indore - 452001, Madhya Pradesh
               </div>
             </div>
-            
-            <a 
-              href={googleMapsUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                backgroundColor: '#FFFFFF',
-                color: 'var(--primary-navy)',
-                border: '1px solid #CBD5E1',
-                padding: '0.65rem 1.25rem',
-                borderRadius: '10px',
-                fontWeight: 600,
-                fontSize: '0.88rem',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.04)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--energy-orange)';
-                e.currentTarget.style.color = 'var(--energy-orange)';
-                e.currentTarget.style.transform = 'translateY(-1px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#CBD5E1';
-                e.currentTarget.style.color = 'var(--primary-navy)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <Navigation size={15} />
-              Visit Us on Google Maps
-            </a>
           </div>
 
-          {/* 2. Phone Card */}
+          {/* 2. Direct Phone / Call Us */}
           <div style={{
-            padding: '1.15rem',
+            padding: '1.15rem 1.25rem',
             borderRadius: '16px',
             backgroundColor: 'var(--soft-grey-blue)',
             border: '1px solid #E2E8F0',
@@ -231,11 +214,11 @@ export default function ContactModal({ isOpen, onClose }) {
             gap: '1rem',
             flexWrap: 'wrap'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
               <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '12px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
                 backgroundColor: 'rgba(12, 45, 72, 0.08)',
                 color: 'var(--primary-navy)',
                 display: 'flex',
@@ -243,13 +226,13 @@ export default function ContactModal({ isOpen, onClose }) {
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
-                <Phone size={20} />
+                <Phone size={19} />
               </div>
               <div>
-                <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--secondary-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--secondary-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Direct Phone / WhatsApp
                 </div>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--primary-navy)', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.98rem', fontWeight: 700, color: 'var(--primary-navy)', marginTop: '0.15rem' }}>
                   {formattedPhone}
                 </div>
               </div>
@@ -261,16 +244,16 @@ export default function ContactModal({ isOpen, onClose }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem',
+                gap: '0.45rem',
                 backgroundColor: 'var(--energy-orange)',
                 color: '#FFFFFF',
-                padding: '0.65rem 1.35rem',
+                padding: '0.6rem 1.25rem',
                 borderRadius: '10px',
                 fontWeight: 600,
-                fontSize: '0.88rem',
+                fontSize: '0.86rem',
                 textDecoration: 'none',
                 transition: 'all 0.2s ease',
-                boxShadow: '0 2px 8px rgba(245, 130, 32, 0.3)'
+                boxShadow: '0 2px 8px rgba(245, 130, 32, 0.28)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = 'var(--energy-orange-hover)';
@@ -282,13 +265,13 @@ export default function ContactModal({ isOpen, onClose }) {
               }}
             >
               <PhoneCall size={15} />
-              Call Us
+              Call us
             </a>
           </div>
 
-          {/* 3. Email Card */}
+          {/* 3. Official Email / Email Us */}
           <div style={{
-            padding: '1.15rem',
+            padding: '1.15rem 1.25rem',
             borderRadius: '16px',
             backgroundColor: 'var(--soft-grey-blue)',
             border: '1px solid #E2E8F0',
@@ -298,11 +281,11 @@ export default function ContactModal({ isOpen, onClose }) {
             gap: '1rem',
             flexWrap: 'wrap'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
               <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '12px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
                 backgroundColor: 'rgba(12, 45, 72, 0.08)',
                 color: 'var(--primary-navy)',
                 display: 'flex',
@@ -310,10 +293,10 @@ export default function ContactModal({ isOpen, onClose }) {
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
-                <Mail size={20} />
+                <Mail size={19} />
               </div>
               <div>
-                <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--secondary-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--secondary-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Official Email
                 </div>
                 <div style={{ fontSize: '0.98rem', fontWeight: 700, color: 'var(--primary-navy)', marginTop: '0.15rem' }}>
@@ -328,13 +311,13 @@ export default function ContactModal({ isOpen, onClose }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem',
+                gap: '0.45rem',
                 backgroundColor: 'var(--primary-navy)',
                 color: '#FFFFFF',
-                padding: '0.65rem 1.35rem',
+                padding: '0.6rem 1.25rem',
                 borderRadius: '10px',
                 fontWeight: 600,
-                fontSize: '0.88rem',
+                fontSize: '0.86rem',
                 textDecoration: 'none',
                 transition: 'all 0.2s ease',
                 boxShadow: '0 2px 8px rgba(12, 45, 72, 0.25)'
@@ -349,7 +332,7 @@ export default function ContactModal({ isOpen, onClose }) {
               }}
             >
               <Send size={15} />
-              Email Us
+              Email us
             </a>
           </div>
 
