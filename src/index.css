@@ -31,7 +31,7 @@
 
 html {
   font-family: var(--font-body);
-  background-color: var(--dark-navy);
+  background-color: var(--warm-white);
   color: var(--primary-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: clip;
-  background-color: var(--dark-navy);
+  background-color: var(--warm-white);
 }
 
 #root {
@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  background-color: var(--dark-navy);
+  background-color: var(--warm-white);
 }
 
 a {
@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(220, 229, 234, 0.8);
@@ -604,6 +604,7 @@ textarea.form-control {
   margin-top: auto;
   padding: 4.5rem 0 2.5rem 0;
   border-top: 4px solid var(--energy-orange);
+  box-shadow: 0 400px 0 0 var(--dark-navy);
 }
 
 .footer-top {
@@ -615,7 +616,7 @@ textarea.form-control {
 
 .footer-brand p {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 0.95rem;
+  font-size: 15.2px;
   margin-top: 1.25rem;
   line-height: 1.65;
 }

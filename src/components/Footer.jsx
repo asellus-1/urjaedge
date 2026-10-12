@@ -35,16 +35,18 @@ export default function Footer() {
                 UrjaEdge
               </div>
             </button>
-            <div style={{ marginTop: '1.5rem' }}>
-              <h4 style={{ color: 'var(--energy-orange)', fontSize: '0.95rem', fontWeight: '700', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Registered Office</h4>
-              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+            <div style={{ marginTop: '1.5rem', fontSize: '15.2px' }}>
+              <h4 style={{ color: 'var(--energy-orange)', fontSize: '15.2px', fontWeight: '700', marginBottom: '1rem', letterSpacing: '0.02em' }}>
+                UrjaEdge Energy Management
+              </h4>
+              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px', lineHeight: '1.6', marginBottom: '1rem' }}>
                 202, Jayshree Apartment, New Palasia,<br />
                 Indore - 452001, Madhya Pradesh
               </p>
-              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px', marginBottom: '0.5rem' }}>
                 <strong style={{ color: 'var(--white)' }}>Email:</strong> urjaedge@gmail.com
               </p>
-              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.9rem' }}>
+              <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '15.2px' }}>
                 <strong style={{ color: 'var(--white)' }}>Mobile:</strong> +91 78801 16970
               </p>
             </div>
