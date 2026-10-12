@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext';
 
 export default function Software() {
+  const { openContactModal } = useContactModal();
   const primaryModules = [
     {
       title: "Daily Inspection & PM",
@@ -165,9 +166,13 @@ export default function Software() {
           <div className="why-software-box">
             <h3>WHY URJAEDGE SOFTWARE?</h3>
             <p>Paperless • Real-time • Scalable • Exportable MIS</p>
-            <Link to="/contact-us?type=Solar O&M Management Software" className="btn-primary" style={{ padding: '0.9rem 2.25rem' }}>
+            <button 
+              onClick={() => openContactModal('Solar O&M Management Software')} 
+              className="btn-primary" 
+              style={{ padding: '0.9rem 2.25rem', cursor: 'pointer', border: 'none' }}
+            >
               Book a software demo <ArrowRight size={18} />
-            </Link>
+            </button>
           </div>
 
         </div>

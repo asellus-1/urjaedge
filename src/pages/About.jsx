@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext';
 
 export default function About() {
+  const { openContactModal } = useContactModal();
   const physicalBullets = [
     "Site manpower & experienced engineers",
     "Maintenance planning & schedule execution",
@@ -109,9 +110,13 @@ export default function About() {
             <p style={{ color: 'var(--secondary-text)', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto 2rem auto' }}>
               Whether you need turnkey on-ground site maintenance, paperless digital software, or a combined integrated model.
             </p>
-            <Link to="/contact-us" className="btn-primary">
+            <button 
+              onClick={() => openContactModal()} 
+              className="btn-primary"
+              style={{ cursor: 'pointer', border: 'none' }}
+            >
               Talk to UrjaEdge <ArrowRight size={18} />
-            </Link>
+            </button>
           </div>
 
         </div>

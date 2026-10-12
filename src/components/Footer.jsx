@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PrivacyTermsModal from './PrivacyTermsModal';
-import ContactModal from './ContactModal';
+import { useContactModal } from '../context/ContactModalContext';
 
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState('privacy');
-  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const { openContactModal } = useContactModal();
 
   const openModal = (type) => {
     setModalType(type);
@@ -65,7 +65,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => setContactModalOpen(true)}>
+                <button onClick={() => openContactModal()}>
                   Contact Us
                 </button>
               </li>
@@ -87,12 +87,12 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact-us')}>
+                <button onClick={() => openContactModal('Solar Plant O&M Services')}>
                   Request Proposal
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact-us')}>
+                <button onClick={() => openContactModal('Solar O&M Management Software')}>
                   Book Software Demo
                 </button>
               </li>
@@ -121,12 +121,6 @@ export default function Footer() {
       {modalOpen && (
         <PrivacyTermsModal type={modalType} onClose={() => setModalOpen(false)} />
       )}
-
-      {/* Direct Contact Modal */}
-      <ContactModal 
-        isOpen={contactModalOpen} 
-        onClose={() => setContactModalOpen(false)} 
-      />
     </footer>
   );
 }

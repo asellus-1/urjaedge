@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PrivacyTermsModal from '../components/PrivacyTermsModal';
+import { useContactModal } from '../context/ContactModalContext';
 
 export default function Home() {
   const [searchParams] = useSearchParams();
   const typeParam = searchParams.get('type');
+  const { openContactModal } = useContactModal();
 
   // Initial Contact Form State
   const initialFormState = {
@@ -149,13 +151,13 @@ export default function Home() {
                 </p>
                 <div className="hero-ctas load-fade-4">
                   <button 
-                    onClick={() => scrollToSection('contact-us', 'Solar Plant O&M Services')} 
+                    onClick={() => openContactModal('Solar Plant O&M Services')} 
                     className="btn-primary"
                   >
                     Request O&M proposal
                   </button>
                   <button 
-                    onClick={() => scrollToSection('contact-us', 'Solar O&M Management Software')} 
+                    onClick={() => openContactModal('Solar O&M Management Software')} 
                     className="btn-outline"
                   >
                     Book software demo
@@ -234,14 +236,14 @@ export default function Home() {
 
           <div className="load-fade-4" style={{ display: 'flex', gap: '0.75rem', marginBottom: '2.75rem' }}>
             <button 
-              onClick={() => scrollToSection('contact-us', 'Solar Plant O&M Services')} 
+              onClick={() => openContactModal('Solar Plant O&M Services')} 
               className="btn-primary" 
               style={{ flex: 1, padding: '0.75rem 0.5rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', borderRadius: '50px' }}
             >
               O&M PROPOSAL
             </button>
             <button 
-              onClick={() => scrollToSection('contact-us', 'Solar O&M Management Software')} 
+              onClick={() => openContactModal('Solar O&M Management Software')} 
               className="btn-dark" 
               style={{ flex: 1, padding: '0.75rem 0.5rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', borderRadius: '50px' }}
             >
@@ -498,7 +500,7 @@ export default function Home() {
 
               <div>
                 <button 
-                  onClick={() => scrollToSection('contact-us', 'Solar Plant O&M Services')} 
+                  onClick={() => openContactModal('Solar Plant O&M Services')} 
                   className="btn-primary" 
                   style={{ width: '100%', padding: '0.85rem 1.25rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', borderRadius: '50px' }}
                 >
@@ -630,7 +632,7 @@ export default function Home() {
               Paperless • Real-time • Scalable • Exportable MIS
             </p>
             <button 
-              onClick={() => scrollToSection('contact-us', 'Solar O&M Management Software')} 
+              onClick={() => openContactModal('Solar O&M Management Software')} 
               className="btn-primary" 
               style={{ width: '100%', padding: '0.85rem 1.25rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', borderRadius: '50px' }}
             >
@@ -789,7 +791,7 @@ export default function Home() {
             </ul>
             <div>
               <button 
-                onClick={() => scrollToSection('contact-us')} 
+                onClick={() => openContactModal()} 
                 className="btn-primary" 
                 style={{ width: '100%', padding: '0.85rem 1.5rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em', borderRadius: '50px' }}
               >

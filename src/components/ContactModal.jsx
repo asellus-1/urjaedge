@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, MapPin, Phone, Mail, PhoneCall, Send } from 'lucide-react';
 
-export default function ContactModal({ isOpen, onClose }) {
+export default function ContactModal({ isOpen, onClose, inquiryType = null }) {
   const [isRendered, setIsRendered] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -122,6 +122,17 @@ export default function ContactModal({ isOpen, onClose }) {
             }}>
               Contact UrjaEdge
             </h3>
+            {inquiryType && (
+              <p style={{
+                fontSize: '0.8rem',
+                color: 'var(--energy-orange)',
+                fontWeight: 600,
+                margin: '0.3rem 0 0',
+                letterSpacing: '0.01em'
+              }}>
+                Regarding: {inquiryType}
+              </p>
+            )}
           </div>
 
           <button
@@ -306,7 +317,9 @@ export default function ContactModal({ isOpen, onClose }) {
             </div>
 
             <a 
-              href={`mailto:${emailAddress}?subject=Enquiry%20regarding%20UrjaEdge%20Solar%20Solutions`}
+              href={`mailto:${emailAddress}?subject=${encodeURIComponent(
+                inquiryType ? `Enquiry regarding UrjaEdge ${inquiryType}` : 'Enquiry regarding UrjaEdge Solar Solutions'
+              )}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext';
 
 export default function Services() {
+  const { openContactModal } = useContactModal();
   const scopeItems = [
     "Preventive maintenance",
     "Corrective maintenance",
@@ -115,13 +116,13 @@ export default function Services() {
               </div>
 
               <div style={{ marginTop: '2.5rem' }}>
-                <Link 
-                  to="/contact-us?type=Solar Plant O&M Services" 
+                <button 
+                  onClick={() => openContactModal('Solar Plant O&M Services')} 
                   className="btn-primary" 
-                  style={{ width: '100%' }}
+                  style={{ width: '100%', cursor: 'pointer', border: 'none' }}
                 >
                   Request an O&M proposal <ArrowRight size={18} />
-                </Link>
+                </button>
               </div>
             </div>
 
