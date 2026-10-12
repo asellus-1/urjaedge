@@ -31,7 +31,7 @@
 
 html {
   font-family: var(--font-body);
-  background-color: var(--dark-navy); /* Fixes iOS rubber-band/bottom overscroll showing white or gap below footer */
+  background-color: var(--warm-white);
   color: var(--primary-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -41,24 +41,17 @@ html {
 
 body {
   min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow-x: clip;
-  background-color: var(--dark-navy);
+  background-color: var(--warm-white);
 }
 
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-height: 100dvh;
   width: 100%;
-  background-color: var(--dark-navy);
-}
-
-main {
-  flex: 1 0 auto;
   background-color: var(--warm-white);
 }
 
@@ -607,21 +600,8 @@ textarea.form-control {
   background-color: var(--dark-navy);
   color: var(--white);
   margin-top: auto;
-  padding: 4.5rem 0 calc(2.5rem + env(safe-area-inset-bottom, 0px)) 0;
+  padding: 4.5rem 0 2.5rem 0;
   border-top: 4px solid var(--energy-orange);
-  box-shadow: 0 1000px 0 0 var(--dark-navy);
-  position: relative;
-}
-
-.site-footer::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 2000px;
-  background-color: var(--dark-navy);
-  pointer-events: none;
 }
 
 .footer-top {
