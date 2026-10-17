@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Mail, Phone, MapPin, CheckCircle, Send, AlertCircle } from 'lucide-react';
+import { submitInquiryToGoogleSheet } from '../services/inquiryService';
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
@@ -37,7 +38,7 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
 
@@ -58,14 +59,7 @@ export default function Contact() {
       return;
     }
 
-    const existingEnquiries = JSON.parse(localStorage.getItem('urjaedge_enquiries') || '[]');
-    existingEnquiries.push({
-      ...formData,
-      id: Date.now(),
-      submittedAt: new Date().toISOString()
-    });
-    localStorage.setItem('urjaedge_enquiries', JSON.stringify(existingEnquiries));
-
+    await submitInquiryToGoogleSheet(formData, 'Contact Page Form');
     setSubmitted(true);
   };
 

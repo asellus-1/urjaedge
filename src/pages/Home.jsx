@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PrivacyTermsModal from '../components/PrivacyTermsModal';
 import { useContactModal } from '../context/ContactModalContext';
+import { submitInquiryToGoogleSheet } from '../services/inquiryService';
 
 export default function Home() {
   const [searchParams] = useSearchParams();
@@ -44,15 +45,9 @@ export default function Home() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const existingEnquiries = JSON.parse(localStorage.getItem('urjaedge_enquiries') || '[]');
-    existingEnquiries.push({
-      ...formData,
-      id: Date.now(),
-      submittedAt: new Date().toISOString()
-    });
-    localStorage.setItem('urjaedge_enquiries', JSON.stringify(existingEnquiries));
+    await submitInquiryToGoogleSheet(formData, 'Home Page Contact Form');
     setSubmitted(true);
   };
 
